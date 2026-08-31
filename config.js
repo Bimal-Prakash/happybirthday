@@ -47,7 +47,7 @@ const BIRTHDAY_CONFIG = {
   reasons: [
     {
       icon: "✨",
-      title: "Your cutsie Laugh",
+      title: "Your sweet laughter",
       description: "How your laugh immediately lights up my mood and makes everything better."
     },
     {
