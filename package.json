@@ -1,0 +1,17 @@
+{
+  "name": "happy-birthday",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node scripts/server.js",
+    "dev": "node scripts/server.js",
+    "de": "node scripts/server.js"
+  },
+  "dependencies": {
+    "canvas-confetti": "^1.9.4",
+    "framer-motion": "^13.1.1",
+    "lucide-react": "^1.38.0"
+  },
+  "devDependencies": {
+    "@types/canvas-confetti": "^1.9.0"
+  }
+}

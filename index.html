@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, Prashita! ✨🎂</title>
+  <meta name="description" content="A special birthday celebration made with love for Prashita.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Canvas Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.4/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+  <!-- Ambient Particle & Star Background -->
+  <canvas id="ambientCanvas"></canvas>
+
+  <!-- Floating Hearts Container -->
+  <div id="heartsContainer" aria-hidden="true"></div>
+
+  <!-- Music Player Floating Widget -->
+  <aside class="floating-music-bar" id="musicBar">
+    <button class="music-disc-btn" id="musicToggleBtn" aria-label="Toggle Romantic Music"
+      title="Play romantic birthday melody">
+      <div class="vinyl-disc" id="vinylDisc">
+        <div class="vinyl-grooves"></div>
+        <div class="vinyl-center">
+          <span class="vinyl-icon">🎵</span>
+        </div>
+      </div>
+      <div class="music-details">
+        <span class="music-title" id="musicTitle">Romantic Melody</span>
+        <span class="music-status" id="musicStatus">Click to play sound 🎵</span>
+      </div>
+      <div class="music-equalizer" id="musicEqualizer">
+        <span class="bar bar-1"></span>
+        <span class="bar bar-2"></span>
+        <span class="bar bar-3"></span>
+        <span class="bar bar-4"></span>
+      </div>
+    </button>
+  </aside>
+
+  <!-- Romantic Entrance Gate (Guarantees Instant Music Playback on mobile & desktop) -->
+  <div class="welcome-overlay" id="welcomeOverlay">
+    <div class="welcome-card">
+      <div class="welcome-gift-icon">🎁✨</div>
+      <div class="welcome-tag">Special Birthday Delivery 💌</div>
+      <h2 class="welcome-title">For Prashita 💖</h2>
+      <p class="welcome-subtitle">A little world crafted with all my love, just for your birthday.</p>
+      <button class="btn-primary btn-welcome" id="enterSurpriseBtn">
+        <span class="btn-text">✨ Open Your Surprise ✨</span>
+        <span class="btn-glow"></span>
+      </button>
+      <p class="welcome-hint">🎵 Tap to enter with music</p>
+    </div>
+  </div>
+
+  <main class="main-wrapper">
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="hero-container">
+
+        <!-- Left Column: Romantic Texts -->
+        <div class="hero-text-col">
+          <div class="hero-badge animate-fade-in" id="heroBadge">
+            <span class="badge-sparkle">✨</span>
+            <span class="badge-text" id="badgeText">Today is all about YOU</span>
+            <span class="badge-sparkle">✨</span>
+          </div>
+
+          <h1 class="hero-headline" id="heroHeadline">
+            Happy Birthday, <br>
+            <span class="gradient-text" id="headlineHighlight">My Beautiful Love!</span>
+          </h1>
+
+          <p class="hero-subheadline" id="heroSubheadline">
+            To the girl who brings endless sunshine, warmth, and magic into my universe. Every single second with you is
+            a dream come true.
+          </p>
+
+          <!-- Birthday Date / Special Milestone Pill -->
+          <div class="date-pill-container">
+            <div class="date-pill">
+              <span class="pill-icon">🌸</span>
+              <span id="displayBirthdayDate">September 1</span>
+            </div>
+            <div class="date-pill">
+              <span id="displayNickname">Prashiii💕✨</span>
+            </div>
+          </div>
+
+          <!-- Action CTA -->
+          <div class="hero-actions">
+            <a href="#cake-section" class="btn-primary" id="heroCtaBtn">
+              <span class="btn-text" id="ctaBtnText">✨ Unwrap Your Surprise ✨</span>
+              <span class="btn-glow"></span>
+            </a>
+            <button class="btn-secondary" id="confettiCannonBtn">
+              <span>🎉 Shower Confetti</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Column: Hero Photo Frame Placeholder -->
+        <div class="hero-visual-col">
+          <div class="hero-image-card">
+            <div class="hero-glowing-ring"></div>
+            <div class="hero-card-inner">
+              <img id="heroImage" src="assets/hero.png" alt="Birthday Queen Photo" class="hero-photo"
+                onerror="this.onerror=null; this.src='assets/hero-placeholder.svg';">
+              <div class="hero-photo-overlay"></div>
+            </div>
+
+            <!-- Floating Badges -->
+            <div class="floating-badge badge-top-right">
+              <span>cutie patootie 🌸</span>
+            </div>
+            <div class="floating-badge badge-bottom-left">
+              <span class="badge-emoji">💖</span>
+              <span>My Favorite Person</span>
+            </div>
+            <div class="floating-badge badge-bottom-right">
+              <span class="badge-emoji">🤣</span>
+              <span>Bot kahiki</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Scroll Indicator -->
+      <a href="#cake-section" class="scroll-down-indicator" aria-label="Scroll to birthday cake section">
+        <span class="scroll-text">Make a Wish</span>
+        <div class="mouse-icon">
+          <div class="mouse-wheel"></div>
+        </div>
+      </a>
+    </section>
+
+    <!-- SECTION: INTERACTIVE BIRTHDAY CAKE & CANDLE -->
+    <section class="cake-section" id="cake-section">
+      <div class="section-header">
+        <div class="section-tag">🎂 Birthday Tradition</div>
+        <h2 class="section-title" id="cakeTitle">Make a Birthday Wish</h2>
+        <p class="section-subtitle" id="cakeSubtitle">
+          Close your eyes, hold the sweetest wish in your heart, and click the candle to blow it out!
+        </p>
+      </div>
+
+      <div class="cake-stage-container">
+        <div class="cake-ambient-glow"></div>
+
+        <!-- Interactive Cake Element -->
+        <div class="cake-wrapper" id="cakeWrapper" title="Click candle to blow out!">
+          <svg class="cake-svg" viewBox="0 0 400 420" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <!-- Cake Gradients -->
+              <linearGradient id="standGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fff8f0" />
+                <stop offset="50%" stop-color="#e8d3b9" />
+                <stop offset="100%" stop-color="#c5a880" />
+              </linearGradient>
+              <linearGradient id="goldRim" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#ffeaa7" />
+                <stop offset="50%" stop-color="#ffd166" />
+                <stop offset="100%" stop-color="#f39c12" />
+              </linearGradient>
+
+              <!-- Pink Sponge Gradients -->
+              <linearGradient id="tierBottomGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#e05780" />
+                <stop offset="25%" stop-color="#ff758c" />
+                <stop offset="70%" stop-color="#ff8fa3" />
+                <stop offset="100%" stop-color="#c93b67" />
+              </linearGradient>
+              <linearGradient id="tierMiddleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#e85d88" />
+                <stop offset="30%" stop-color="#ff7ea5" />
+                <stop offset="70%" stop-color="#ffa6be" />
+                <stop offset="100%" stop-color="#d44372" />
+              </linearGradient>
+              <linearGradient id="tierTopGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#ef6b95" />
+                <stop offset="30%" stop-color="#ff8db1" />
+                <stop offset="70%" stop-color="#ffb8cc" />
+                <stop offset="100%" stop-color="#df4e7e" />
+              </linearGradient>
+
+              <!-- Frosting Cream Gradients -->
+              <linearGradient id="frostingGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#ffffff" />
+                <stop offset="70%" stop-color="#fff0f5" />
+                <stop offset="100%" stop-color="#ffd6e0" />
+              </linearGradient>
+
+              <!-- Flame Glow Filter -->
+              <filter id="flameBlur" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+
+            <!-- 1. Pedestal Stand Base & Stem -->
+            <g class="cake-stand-group">
+              <!-- Ambient Floor Shadow -->
+              <ellipse cx="200" cy="395" rx="170" ry="18" fill="#000000" opacity="0.45" />
+
+              <!-- Pedestal Foot -->
+              <ellipse cx="200" cy="380" rx="90" ry="14" fill="url(#standGrad)" stroke="url(#goldRim)"
+                stroke-width="2" />
+              <path d="M 175 350 Q 185 368 160 380 L 240 380 Q 215 368 225 350 Z" fill="url(#standGrad)" />
+
+              <!-- Pedestal Plate Base & Rim -->
+              <path d="M 40 350 L 40 360 A 160 22 0 0 0 360 360 L 360 350 Z" fill="#bfa588" />
+              <ellipse cx="200" cy="350" rx="160" ry="22" fill="url(#standGrad)" stroke="url(#goldRim)"
+                stroke-width="2.5" />
+            </g>
+
+            <!-- 2. Bottom Tier (Tier 1) - Sits on Stand at y=350 -->
+            <g class="cake-tier tier-1">
+              <!-- Tier 1 Body (From y=270 down to y=350) -->
+              <path d="M 65 270 
+                       A 135 22 0 0 0 335 270 
+                       L 335 350 
+                       A 135 22 0 0 1 65 350 Z" fill="url(#tierBottomGrad)" />
+
+              <!-- Tier 1 Top Surface at y=270 -->
+              <ellipse cx="200" cy="270" rx="135" ry="22" fill="#ff9ebb" />
+              <ellipse cx="200" cy="270" rx="135" ry="22" fill="url(#frostingGrad)" />
+
+              <!-- Tier 1 Scalloped Draping Frosting -->
+              <path d="M 65 270 
+                       Q 85 295 105 275 
+                       Q 130 305 155 275 
+                       Q 180 310 205 280 
+                       Q 230 312 255 278 
+                       Q 280 305 305 275 
+                       Q 325 295 335 270 
+                       A 135 22 0 0 0 65 270 Z" fill="url(#frostingGrad)" />
+
+              <!-- Pearls & Sprinkles on Tier 1 -->
+              <circle cx="85" cy="325" r="3" fill="#ffd166" />
+              <circle cx="120" cy="335" r="3.5" fill="#ffffff" />
+              <circle cx="160" cy="330" r="3" fill="#ff758c" />
+              <circle cx="210" cy="338" r="3.5" fill="#c8b6ff" />
+              <circle cx="260" cy="332" r="3" fill="#ffd166" />
+              <circle cx="305" cy="325" r="3.5" fill="#ffffff" />
+            </g>
+
+            <!-- 3. Middle Tier (Tier 2) - Sits Directly on Tier 1 Top Surface at y=270 -->
+            <g class="cake-tier tier-2">
+              <!-- Tier 2 Body (From y=195 down to y=270) -->
+              <path d="M 105 195 
+                       A 95 16 0 0 0 295 195 
+                       L 295 270 
+                       A 95 16 0 0 1 105 270 Z" fill="url(#tierMiddleGrad)" />
+
+              <!-- Tier 2 Top Surface at y=195 -->
+              <ellipse cx="200" cy="195" rx="95" ry="16" fill="#ffaec6" />
+              <ellipse cx="200" cy="195" rx="95" ry="16" fill="url(#frostingGrad)" />
+
+              <!-- Tier 2 Scalloped Draping Frosting -->
+              <path d="M 105 195 
+                       Q 125 220 145 200 
+                       Q 170 228 195 202 
+                       Q 220 230 245 200 
+                       Q 270 222 295 195 
+                       A 95 16 0 0 0 105 195 Z" fill="url(#frostingGrad)" />
+
+              <!-- Fresh Strawberries on Tier 1 Ledge -->
+              <g transform="translate(85, 270) scale(0.9)">
+                <path d="M 0 0 C -8 -4 -12 6 0 14 C 12 6 8 -4 0 0 Z" fill="#e63946" />
+                <path d="M -2 -1 L 0 -4 L 2 -1" stroke="#2a9d8f" stroke-width="2" />
+                <circle cx="-2" cy="4" r="0.8" fill="#fff" />
+                <circle cx="2" cy="7" r="0.8" fill="#fff" />
+              </g>
+              <g transform="translate(298, 270) scale(0.9)">
+                <path d="M 0 0 C -8 -4 -12 6 0 14 C 12 6 8 -4 0 0 Z" fill="#e63946" />
+                <path d="M -2 -1 L 0 -4 L 2 -1" stroke="#2a9d8f" stroke-width="2" />
+                <circle cx="-2" cy="4" r="0.8" fill="#fff" />
+                <circle cx="2" cy="7" r="0.8" fill="#fff" />
+              </g>
+
+              <!-- Sprinkles on Tier 2 -->
+              <circle cx="135" cy="245" r="3" fill="#ffd166" />
+              <circle cx="170" cy="252" r="3" fill="#ffffff" />
+              <circle cx="215" cy="254" r="3" fill="#c8b6ff" />
+              <circle cx="260" cy="246" r="3" fill="#ffd166" />
+            </g>
+
+            <!-- 4. Top Tier (Tier 3) - Sits Directly on Tier 2 Top Surface at y=195 -->
+            <g class="cake-tier tier-3">
+              <!-- Tier 3 Body (From y=125 down to y=195) -->
+              <path d="M 140 125 
+                       A 60 12 0 0 0 260 125 
+                       L 260 195 
+                       A 60 12 0 0 1 140 195 Z" fill="url(#tierTopGrad)" />
+
+              <!-- Tier 3 Top Surface at y=125 -->
+              <ellipse cx="200" cy="125" rx="60" ry="12" fill="#ffb8cc" />
+              <ellipse cx="200" cy="125" rx="60" ry="12" fill="url(#frostingGrad)" />
+
+              <!-- Tier 3 Scalloped Draping Frosting -->
+              <path d="M 140 125 
+                       Q 155 145 170 130 
+                       Q 190 152 210 130 
+                       Q 230 150 245 130 
+                       Q 255 140 260 125 
+                       A 60 12 0 0 0 140 125 Z" fill="url(#frostingGrad)" />
+
+              <!-- Whipped Cream Dollops on Top Edge -->
+              <ellipse cx="145" cy="123" rx="7" ry="5" fill="#ffffff" />
+              <ellipse cx="170" cy="118" rx="8" ry="6" fill="#ffffff" />
+              <ellipse cx="200" cy="116" rx="9" ry="6" fill="#ffffff" />
+              <ellipse cx="230" cy="118" rx="8" ry="6" fill="#ffffff" />
+              <ellipse cx="255" cy="123" rx="7" ry="5" fill="#ffffff" />
+            </g>
+
+            <!-- 5. Birthday Candle - Sits in Top Tier at y=125 -->
+            <g class="candle-svg-group">
+              <!-- Candle Body -->
+              <rect x="194" y="70" width="12" height="55" rx="3" fill="url(#goldRim)" />
+
+              <!-- Candle Spiral Stripes -->
+              <path d="M 194 80 L 206 75" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.9" />
+              <path d="M 194 95 L 206 90" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.9" />
+              <path d="M 194 110 L 206 105" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.9" />
+
+              <!-- Candle Wick -->
+              <line x1="200" y1="70" x2="200" y2="58" stroke="#333333" stroke-width="2.5" stroke-linecap="round" />
+            </g>
+          </svg>
+
+          <!-- Candle Flame Overlay with Smooth CSS Flickering -->
+          <div class="flame" id="candleFlame">
+            <div class="flame-core"></div>
+            <div class="flame-glow"></div>
+          </div>
+
+          <!-- Candle Smoke (Shown on Extinguish) -->
+          <div class="candle-smoke" id="candleSmoke">
+            <div class="smoke-particle s1"></div>
+            <div class="smoke-particle s2"></div>
+            <div class="smoke-particle s3"></div>
+          </div>
+
+        </div>
+
+        <!-- Interactive Blow Instruction Button -->
+        <div class="candle-prompt-box">
+          <button class="btn-blow-candle" id="blowCandleBtn">
+            <span class="blow-icon">💨</span>
+            <span class="blow-text" id="blowBtnText">Click Candle or Tap Here to Blow!</span>
+          </button>
+          <p class="blow-hint">✨ Sound effects & confetti will burst upon extinguishing ✨</p>
+        </div>
+
+        <!-- Wish Unlocked Banner (Initially Hidden) -->
+        <div class="wish-reveal-card" id="wishRevealCard">
+          <div class="wish-card-inner">
+            <div class="wish-icon">🎉✨🎂</div>
+            <h3 class="wish-heading">Wish Sent To The Stars!</h3>
+            <p class="wish-message" id="cakeBlownMessage">
+              May all your sweetest dreams, hopes, and wishes come true! You deserve all the happiness in the world.
+            </p>
+            <button class="btn-primary btn-sm" id="relightCandleBtn">
+              🕯️ Relight & Make Another Wish
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: 3D WAX-SEALED LOVE LETTER -->
+    <section class="letter-section" id="letter-section">
+      <div class="section-header">
+        <div class="section-tag" id="letterTag">💌 From My Heart</div>
+        <h2 class="section-title">A Birthday Love Letter</h2>
+        <p class="section-subtitle">Click the wax seal to break the envelope and unwrap your special letter.</p>
+      </div>
+
+      <div class="envelope-stage">
+
+        <!-- Interactive 3D Envelope Container -->
+        <div class="envelope-wrapper" id="envelopeWrapper">
+          <div class="envelope" id="envelope">
+
+            <!-- 1. Interior Back Wall -->
+            <div class="envelope-back"></div>
+
+            <!-- 2. The Love Letter (Hidden inside until opened) -->
+            <div class="letter-sheet" id="letterSheet">
+              <div class="letter-decorations-top">
+                <span class="letter-stamp">🌸</span>
+                <span class="letter-date" id="letterDate">On your special day</span>
+              </div>
+
+              <h3 class="letter-salutation" id="letterTitle">To My Dearest Prashita,</h3>
+
+              <div class="letter-body" id="letterBody">
+                <!-- Injected from config.js -->
+              </div>
+
+              <div class="letter-signature-block">
+                <p class="letter-signature" id="letterSignature">Forever Yours, Always & Truly 💕</p>
+                <div class="letter-signature-hearts">❤️❤️❤️</div>
+              </div>
+
+              <button class="btn-close-letter" id="closeLetterBtn" aria-label="Fold Letter Back">
+                <span>✕ Fold Letter</span>
+              </button>
+            </div>
+
+            <!-- 3. Envelope Front Pocket Flaps (100% Solid Cover) -->
+            <div class="envelope-pocket-left"></div>
+            <div class="envelope-pocket-right"></div>
+            <div class="envelope-pocket-bottom"></div>
+
+            <!-- 4. Top Folding Flap (Rotates 180deg on click) -->
+            <div class="envelope-flap" id="envelopeFlap">
+              <div class="flap-triangle"></div>
+            </div>
+
+            <!-- 5. Wax Seal Button -->
+            <div class="wax-seal" id="waxSeal" role="button" tabindex="0" aria-label="Break Wax Seal & Open Letter"
+              title="Click to open letter!">
+              <div class="seal-inner">
+                <span class="seal-heart">💖</span>
+              </div>
+              <div class="seal-ripple"></div>
+              <span class="seal-tooltip">Click to Open 💌</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: REASONS WHY I LOVE YOU -->
+    <section class="reasons-section" id="reasons-section">
+      <div class="section-header">
+        <div class="section-tag">💖 Infinite Reasons</div>
+        <h2 class="section-title">Why You're So Special To Me</h2>
+        <p class="section-subtitle">
+          Hover or tap each card to flip and discover the little things that make me fall in love with you every single
+          day.
+        </p>
+      </div>
+
+      <div class="reasons-grid" id="reasonsGrid">
+        <!-- Injected dynamically from config.js -->
+      </div>
+    </section>
+
+    <!-- CELEBRATION FINALE / GRAND SURPRISE -->
+    <section class="finale-section" id="finale">
+      <div class="finale-card">
+        <div class="finale-stars">✨ 🌟 ✨</div>
+        <h2 class="finale-title">Here's to You, Today and Every Day!</h2>
+        <p class="finale-text">
+          Thank you for bringing so much happiness, light, and magic into my life. I hope today is as sweet,
+          magnificent, and breathtaking as you are.
+        </p>
+
+        <div class="finale-buttons">
+          <button class="btn-primary" id="grandConfettiBtn">
+            <span>🎆 patakaaa phodoooo 🎆</span>
+          </button>
+          <a href="#hero" class="btn-secondary">
+            <span> Back to Top</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- SWEET WISH MODAL (TRIGGERED ON CANDLE BLOW) -->
+  <div class="wish-modal" id="wishModal" aria-hidden="true" role="dialog">
+    <div class="wish-modal-backdrop" id="wishModalBackdrop"></div>
+    <div class="wish-modal-box">
+      <div class="wish-modal-crown">👑</div>
+      <h3 class="wish-modal-title">Happy Birthday, Gorgeous! ✨</h3>
+      <p class="wish-modal-text" id="modalWishText">
+        Your wish has been whispered to the stars. May this year bring you boundless love, laughter, health, and all the
+        dreams your heart longs for.
+      </p>
+      <div class="wish-modal-hearts">💖 🌸 💖</div>
+      <button class="btn-primary" id="wishModalCloseBtn">
+        <span>✨ Thank You My Love! ✨</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p class="footer-love">Crafted with endless love & affection for your special day 💕</p>
+      <p class="footer-note">Happy Birthday, <span id="footerRecipient">My Love</span> ✨</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
