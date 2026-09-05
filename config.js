@@ -7,15 +7,15 @@
 
 const BIRTHDAY_CONFIG = {
   // 🌸 Girlfriend & Birthday Info
-  recipientName: "Prashita", // Her name
-  nickname: "Prashiii💕✨",
+  recipientName: "Janvi", // Her name
+  nickname: "Haggu💕✨",
   birthdayDate: "September 1", // Displayed on the badge & timeline
   birthYear: "Special Day", // e.g. "2002" or "Forever Young"
 
   // 💌 Hero Section
   hero: {
-    badge: "🎉 Today is all about YOU, Prashita",
-    headline: "Happy Birthday, My Beautiful Prashita!",
+    badge: "🎉 Today is all about YOU, Janvi",
+    headline: "Happy Birthday, My Beautiful Janvi!",
     subheadline: "To the girl who brings endless sunshine, warmth, and magic into my universe. Every second with you is a dream come true.",
     image: "assets/hero.png", // Replace with her photo or cutout
     placeholderFallback: "assets/hero-placeholder.svg",
