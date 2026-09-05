@@ -8,7 +8,7 @@ This folder contains all the image and audio assets for the birthday website. Yo
  
 | File Name | Location on Site | Recommended Size | Format | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| `hero.png` | Main Hero Section Header | 600 x 600 px (Square / Portrait) | PNG (transparent or photo) | Prashita's photo or a cute couple picture with glowing frame |
+| `hero.png` | Main Hero Section Header | 600 x 600 px (Square / Portrait) | PNG (transparent or photo) | Janvi's photo or a cute couple picture with glowing frame |
 | `music.mp3` *(Optional)* | Background Music Player | Any MP3 file | MP3 | Her favorite romantic song (If left empty, the site plays a built-in soothing chime melody automatically!) |
 
 ---

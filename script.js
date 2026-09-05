@@ -39,6 +39,7 @@ function initWebsiteContent() {
   setText('displayNickname', nickname);
   setText('displayBirthdayDate', bdayDate);
   setText('footerRecipient', recipientName);
+  setText('welcomeTitle', `For ${recipientName} 💖`);
   if (config.music && config.music.title) setText('musicTitle', config.music.title);
 
   // Hero Section
