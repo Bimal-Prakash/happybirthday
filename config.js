@@ -32,7 +32,7 @@ const BIRTHDAY_CONFIG = {
   // 💌 3D Wax Seal Love Letter
   letter: {
     tag: "A Letter From My Heart 💌",
-    title: "To My Dearest Prashita,",
+    title: "To My Dearest Janvi,",
     date: "September 1",
     paragraphs: [
       "Happy Birthday to the most cute ,dumb and gentle soul I know. From the moment you walked into my world, you turned ordinary days into unforgettable adventures.",
